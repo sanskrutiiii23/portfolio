@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanskruti Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    nav h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #cfcfcf;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text p {
+      color: #9d9d9d;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .hero-text h2 {
+      font-size: 72px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text span {
+      color: #bcbcbc;
+    }
+
+    .hero-text .desc {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #a3a3a3;
+      max-width: 600px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: white;
+      color: black;
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid #3a3a3a;
+      color: white;
+    }
+
+    .secondary:hover {
+      background: #161616;
+    }
+
+    .hero-box {
+      width: 320px;
+      height: 320px;
+      border-radius: 40px;
+      background: linear-gradient(145deg, #171717, #0f0f0f);
+      border: 1px solid #262626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 700;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #111111;
+      border: 1px solid #222;
+      padding: 25px;
+      border-radius: 24px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: #555;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #111111;
+      border: 1px solid #222;
+      border-radius: 32px;
+      padding: 35px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: #5a5a5a;
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .tech {
+      color: #8d8d8d;
+      margin-bottom: 20px;
+    }
+
+    .project-card p {
+      color: #b0b0b0;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .project-card a:hover {
+      transform: scale(1.05);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #a8a8a8;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #6f6f6f;
+      border-top: 1px solid #1d1d1d;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h2 {
+        font-size: 52px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .hero-text h2 {
+        font-size: 42px;
+      }
+
+      .hero-box {
+        width: 250px;
+        height: 250px;
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+      <h1>Sanskruti.</h1>
+
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <p>Frontend Developer • UI/UX Designer</p>
+
+        <h2>
+          Hi, I'm <span>Sanskruti</span>
+        </h2>
+
+        <p class="desc">
+          I build responsive frontend websites and design visually engaging interfaces using HTML, CSS, JavaScript, React, and Figma.
+        </p>
+
+        <div class="buttons">
+          <a href="https://github.com/sanskrutiiii23" class="btn primary" target="_blank">GitHub</a>
+
+          <a href="https://www.linkedin.com/in/sanskruti-borade-39291536b/" class="btn secondary" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero-box">
+        SB
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">React.js</div>
+        <div class="skill-card">Tailwind CSS</div>
+        <div class="skill-card">Figma</div>
+        <div class="skill-card">Git & GitHub</div>
+        <div class="skill-card">C++</div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects">
+
+        <div class="project-card">
+          <h3>Netflix Clone</h3>
+          <div class="tech">HTML • CSS</div>
+
+          <p>
+            Responsive frontend Netflix clone with modern layouts and clean UI design.
+          </p>
+
+          <a href="https://sanskrutiiii23.github.io/Netflix-clone/netflix/" target="_blank">
+            View Project
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Coldplay Landing Page</h3>
+          <div class="tech">HTML • CSS</div>
+
+          <p>
+            Responsive fan landing page with engaging visuals and aesthetic layouts.
+          </p>
+
+          <a href="https://sanskrutiiii23.github.io/coldplay-landing-page/assets/" target="_blank">
+            View Project
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Quiz App</h3>
+          <div class="tech">JavaScript • Tailwind CSS</div>
+
+          <p>
+            Interactive quiz application with score tracking and restart functionality.
+          </p>
+
+          <a href="https://quiz-app-2-theta.vercel.app/" target="_blank">
+            View Project
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>GitHub Profile Viewer</h3>
+          <div class="tech">JavaScript • GitHub API</div>
+
+          <p>
+            Dynamic app that fetches and displays real-time GitHub profile data.
+          </p>
+
+          <a href="https://github-task2-rho.vercel.app/" target="_blank">
+            View Project
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Casebook Poster</h3>
+          <div class="tech">Figma</div>
+
+          <p>
+            Promotional poster design focused on branding, typography, and visual hierarchy.
+          </p>
+
+          <a href="https://www.figma.com/design/sMlkTXUXQSjt5UO2c57vvx/casebook-release?node-id=42-2&t=dhqbuHIFFRcSzz9F-1" target="_blank">
+            View Design
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>AnC x Otter AI Poster</h3>
+          <div class="tech">Figma</div>
+
+          <p>
+            Modern collaboration poster with clean typography and creative composition.
+          </p>
+
+          <a href="https://www.figma.com/design/jDx2MKIg6pGBdTm0X8cM4S/AnC-design-task?node-id=1-2&t=s0ky2UmU4jkTWcsK-1" target="_blank">
+            View Design
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Let's Connect</h2>
+
+      <p>
+        Open to internships, hackathons, collaborations, and creative opportunities.
+      </p>
+
+      <div class="buttons" style="justify-content:center; margin-top:40px;">
+        <a href="mailto:sanskrutiborade07@gmail.com" class="btn primary">
+          Email Me
+        </a>
+
+        <a href="https://github.com/sanskrutiiii23" class="btn secondary" target="_blank">
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Sanskruti Borade • Portfolio Website
+    </footer>
+
+  </div>
+
+</body>
+</html>
